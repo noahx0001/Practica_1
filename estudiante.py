@@ -14,12 +14,20 @@ class Estudiante(Lista):
 
     
     def __str__(self):
+        return self.conversion()
+    
+    def conversion(self):
         if self.isObject:
-            return f"Matricula: {self.matricula}, Nombre: {self.nombre}, Apellido Paterno: {self.apPaterno}, Apellido Materno: {self.apMaterno}, Correo: {self.correo}"
+            estudianteDict = dict(matricula=self.matricula, nombre=self.nombre, apPaterno=self.apPaterno, apMaterno=self.apMaterno, correo=self.correo)
+            return str(estudianteDict)
         elif hasattr(self, "elementos"):
-            return "\n".join([str(estudiante) for estudiante in self.elementos])
+            estudiantes = []
+            for estudiante in self.elementos:
+                estudianteDict = estudiante.conversion()
+                estudiantes.append(estudianteDict)
+            return str(estudiantes)
         else:
-            return "No hay estudiantes disponibles"
+            return "No hay inscritos disponibles"
         
     def __repr__(self):
         return self.__str__()
@@ -33,6 +41,7 @@ if __name__ == "__main__":
     estudiantes.agregar_elemento(estudiante2);
     estudiantes.agregar_elemento(estudiante3);
 
+    print(estudiante1)
     print(estudiantes)
 
 
