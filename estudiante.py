@@ -14,20 +14,20 @@ class Estudiante(Lista):
 
     
     def __str__(self):
-        return self.conversion()
+        return str(self.conversion())
     
     def conversion(self):
         if self.isObject:
             estudianteDict = dict(matricula=self.matricula, nombre=self.nombre, apPaterno=self.apPaterno, apMaterno=self.apMaterno, correo=self.correo)
-            return str(estudianteDict)
+            return estudianteDict
         elif hasattr(self, "elementos"):
             estudiantes = []
             for estudiante in self.elementos:
                 estudianteDict = estudiante.conversion()
                 estudiantes.append(estudianteDict)
-            return str(estudiantes)
+            return estudiantes
         else:
-            return "No hay inscritos disponibles"
+            return None
         
     def __repr__(self):
         return self.__str__()

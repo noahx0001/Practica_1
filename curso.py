@@ -16,20 +16,20 @@ class Curso(Lista):
              super().__init__()
 
     def __str__(self):
-        return self.conversion()
+        return str(self.conversion())
     
     def conversion(self):
         if self.isObject:
             cursoDict = dict(nombre=self.nombre, descripcion=self.descripcion, fechaInicio=self.fechaInicio, fechaFin=self.fechaFin, modalidad=self.modalidad)
-            return str(cursoDict)
+            return cursoDict
         elif hasattr(self, "elementos"):
             cursos = []
             for curso in self.elementos:
                 cursoDict = curso.conversion()
                 cursos.append(cursoDict)
-            return str(cursos)
+            return cursos
         else:
-            return "No hay cursos disponibles"
+            return None
 
 # Ejemplo de uso esta se ejecuta cuando yo ejecuto el archivo.
 if __name__ == "__main__":
