@@ -1,3 +1,4 @@
+import json
 class Lista:
     def __init__(self):
         self.elementos = [] 
@@ -20,3 +21,11 @@ class Lista:
     def actualizar_elemento(self, elemento, nuevo_elemento):
         self.eliminar_elemento(elemento)
         self.agregar_elemento(nuevo_elemento)
+
+    def crearArchivo(self, nombreArchivo):
+        f = open(nombreArchivo+".json", "w")
+        f.write(json.dumps(self.conversion(), indent=4))
+        f.close()
+    def cargar (self, nombreArchivo):
+        mydict = json.load(open(nombreArchivo+".json"))
+        return mydict

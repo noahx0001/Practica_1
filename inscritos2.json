@@ -1,0 +1,42 @@
+[
+    {
+        "estudiantes": [
+            {
+                "matricula": 123,
+                "nombre": "Juan",
+                "apPaterno": "Perez",
+                "apMaterno": "Gomez",
+                "correo": "cBp7o@example.com"
+            },
+            {
+                "matricula": 456,
+                "nombre": "Pedro",
+                "apPaterno": "Lopez",
+                "apMaterno": "Garcia",
+                "correo": "2r4y6@example.com"
+            },
+            {
+                "matricula": 789,
+                "nombre": "Maria",
+                "apPaterno": "Gonzalez",
+                "apMaterno": "Gomez",
+                "correo": "VXyOa@example.com"
+            },
+            {
+                "matricula": 101,
+                "nombre": "Luis",
+                "apPaterno": "Gonzalez",
+                "apMaterno": "Gomez",
+                "correo": "VXyOa@example.com"
+            }
+        ],
+        "curso": {
+            "nombre": "Programacion",
+            "descripcion": "Curso de Python",
+            "fechaInicio": "2023-06-01T00:00:00",
+            "fechaFin": "2023-06-30T00:00:00",
+            "modalidad": "Presencial"
+        },
+        "fechaInscripcion": "2023-06-01T00:00:00"
+    }
+]

@@ -1,0 +1,23 @@
+[
+    {
+        "matricula": 123,
+        "nombre": "Juan",
+        "apPaterno": "Perez",
+        "apMaterno": "Gomez",
+        "correo": "cBp7o@example.com"
+    },
+    {
+        "matricula": 456,
+        "nombre": "Pedro",
+        "apPaterno": "Lopez",
+        "apMaterno": "Garcia",
+        "correo": "2r4y6@example.com"
+    },
+    {
+        "matricula": 789,
+        "nombre": "Maria",
+        "apPaterno": "Gonzalez",
+        "apMaterno": "Gomez",
+        "correo": "VXyOa@example.com"
+    }
+]

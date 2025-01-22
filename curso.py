@@ -1,13 +1,14 @@
 
 from datetime import datetime
 from lista import Lista
+import json
 class Curso(Lista):
     def __init__(self, nombre=None, descripcion=None, fechaInicio=None, fechaFin=None, modalidad=None):
 
         self.isObject=nombre and descripcion and fechaInicio and fechaFin and modalidad
 
         if self.isObject:
-            self.nombre =  nombre
+            self.nombre = nombre
             self.descripcion = descripcion
             self.fechaInicio = fechaInicio
             self.fechaFin = fechaFin
@@ -20,7 +21,7 @@ class Curso(Lista):
     
     def conversion(self):
         if self.isObject:
-            cursoDict = dict(nombre=self.nombre, descripcion=self.descripcion, fechaInicio=self.fechaInicio, fechaFin=self.fechaFin, modalidad=self.modalidad)
+            cursoDict = dict(nombre=self.nombre, descripcion=self.descripcion, fechaInicio=self.fechaInicio.isoformat(), fechaFin=self.fechaFin.isoformat(), modalidad=self.modalidad)
             return cursoDict
         elif hasattr(self, "elementos"):
             cursos = []
@@ -30,8 +31,15 @@ class Curso(Lista):
             return cursos
         else:
             return None
-
-# Ejemplo de uso esta se ejecuta cuando yo ejecuto el archivo.
+    def crearObjeto(self, dictionary):
+        if isinstance(dictionary, dict):
+            return Curso(dictionary["nombre"], dictionary["descripcion"], datetime.fromisoformat(dictionary["fechaInicio"]), datetime.fromisoformat(dictionary["fechaFin"]), dictionary["modalidad"])
+        else:
+            cursos = Curso()
+            for curso in dictionary:
+                cursos.agregar_elemento(self.crearObjeto(curso))
+            return cursos
+        
 if __name__ == "__main__":
     curso1 = Curso("Programacion", "Curso de Python", datetime(2023, 6, 1), datetime(2023, 6, 30), "Presencial")
     curso2 = Curso("Matematica", "Curso de Calculo", datetime(2023, 6, 1), datetime(2023, 6, 30), "Presencial")
@@ -42,7 +50,14 @@ if __name__ == "__main__":
     cursos.agregar_elemento(curso2)
     cursos.agregar_elemento(curso3)
 
+    cursos.crearArchivo("cursos") 
+
+    curso1.crearArchivo("curso1") 
+
+    cursos = curso1.crearObjeto(curso1.cargar("cursos"))
+    curso = cursos.crearObjeto(curso1.cargar("curso1"))
+
+    print(curso)
+    print(type(curso))
     print(cursos)
-
-
-    
+    print(type(cursos))

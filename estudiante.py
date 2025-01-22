@@ -28,6 +28,15 @@ class Estudiante(Lista):
             return estudiantes
         else:
             return None
+    def crearObjeto(self,file_name):
+        dictionary = self.cargar(file_name)
+        if isinstance(dictionary, dict):
+            return Estudiante(dictionary["matricula"], dictionary["nombre"], dictionary["apPaterno"], dictionary["apMaterno"], dictionary["correo"])
+        else:
+            self.elementos
+            for estudiante in dictionary:
+                estudiantes.agregar_elemento(self.crearObjeto(estudiante))
+            return estudiantes
         
     def __repr__(self):
         return self.__str__()
@@ -41,8 +50,17 @@ if __name__ == "__main__":
     estudiantes.agregar_elemento(estudiante2);
     estudiantes.agregar_elemento(estudiante3);
 
-    print(estudiante1)
+    estudiantes.crearArchivo("estudiantes")
+
+    estudiante1.crearArchivo("estudiante1")
+
+    estudiantes = estudiantes.crearObjeto("estudiantes")
+    estudiante = estudiantes.crearObjeto("estudiante1")
+
+    print(estudiante)
+    print(type(estudiante))
     print(estudiantes)
+    print(type(estudiantes))
 
 
 

@@ -3,7 +3,6 @@ from estudiante import Estudiante
 from curso import Curso
 from lista import Lista
 from datetime import datetime
-
 class Inscrito(Lista):
     def __init__(self,estudiantes: list[Estudiante]=None, curso: Curso=None, fechaInscripcion=None):
         self.isObject=estudiantes and curso and fechaInscripcion
@@ -18,7 +17,7 @@ class Inscrito(Lista):
         return str(self.conversion())
     def conversion(self):
          if self.isObject:
-            inscritoDict = dict(estudiantes=self.estudiantes.conversion(), curso=self.curso.conversion(), fechaInscripcion=self.fechaInscripcion)
+            inscritoDict = dict(estudiantes=self.estudiantes.conversion(), curso=self.curso.conversion(), fechaInscripcion=self.fechaInscripcion.isoformat())
             return inscritoDict
          elif hasattr(self, "elementos"):
             inscritos = []
@@ -28,6 +27,14 @@ class Inscrito(Lista):
             return inscritos
          else:
             return None
+    def crearObjeto(self,dictionary):
+        if isinstance(dictionary, dict):
+            return Inscrito(dictionary["estudiantes"], dictionary["curso"], dictionary["fechaInscripcion"])
+        else:
+            inscritos = Inscrito()
+            for inscrito in dictionary:
+                inscritos.agregar_elemento(self.crearObjeto(inscrito))
+            return inscritos
     
 if __name__ == "__main__":
         estudiante1 = Estudiante(123, "Juan", "Perez", "Gomez", "cBp7o@example.com")
@@ -44,4 +51,18 @@ if __name__ == "__main__":
 
         inscritos=Inscrito(estudiantes,curso1,datetime(2023, 6, 1))
 
-        print(type(inscritos.estudiantes))
+        inscritos.crearArchivo("inscritos")
+
+        estudiante4 = Estudiante(101, "Luis", "Gonzalez", "Gomez", "VXyOa@example.com")
+        inscritos.estudiantes.agregar_elemento(estudiante4)
+
+        inscritos2 = Inscrito()
+
+        print(inscritos2)
+
+        inscritos2.agregar_elemento(inscritos)
+
+        print(inscritos2)
+
+        inscritos2.crearArchivo("inscritos2")
+
