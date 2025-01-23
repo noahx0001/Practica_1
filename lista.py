@@ -27,5 +27,5 @@ class Lista:
         f.write(json.dumps(self.conversion(), indent=4))
         f.close()
     def cargar (self, nombreArchivo):
-        mydict = json.load(open(nombreArchivo+".json"))
-        return mydict
+        myjson = json.load(open(nombreArchivo+".json"))
+        return myjson

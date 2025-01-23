@@ -27,14 +27,15 @@ class Inscrito(Lista):
             return inscritos
          else:
             return None
-    def crearObjeto(self,dictionary):
-        if isinstance(dictionary, dict):
-            return Inscrito(dictionary["estudiantes"], dictionary["curso"], dictionary["fechaInscripcion"])
+    def crearObjeto(self,mysjson):
+        if isinstance(mysjson, dict):
+            return Inscrito(mysjson["estudiantes"], mysjson["curso"], mysjson["fechaInscripcion"])
+        elif isinstance(mysjson, list):
+            for i in range(0,len(mysjson)):
+                self.elementos[i] = mysjson[i]
+            return self.elementos
         else:
-            inscritos = Inscrito()
-            for inscrito in dictionary:
-                inscritos.agregar_elemento(self.crearObjeto(inscrito))
-            return inscritos
+            return None
     
 if __name__ == "__main__":
         estudiante1 = Estudiante(123, "Juan", "Perez", "Gomez", "cBp7o@example.com")
@@ -65,4 +66,8 @@ if __name__ == "__main__":
         print(inscritos2)
 
         inscritos2.crearArchivo("inscritos2")
+
+        mySingleObject= inscritos2.crearObjeto(inscritos2.cargar("inscritos2"))
+
+        print(mySingleObject)
 

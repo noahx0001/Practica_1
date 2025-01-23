@@ -28,39 +28,45 @@ class Estudiante(Lista):
             return estudiantes
         else:
             return None
-    def crearObjeto(self,file_name):
-        dictionary = self.cargar(file_name)
-        if isinstance(dictionary, dict):
-            return Estudiante(dictionary["matricula"], dictionary["nombre"], dictionary["apPaterno"], dictionary["apMaterno"], dictionary["correo"])
-        else:
-            self.elementos
-            for estudiante in dictionary:
-                estudiantes.agregar_elemento(self.crearObjeto(estudiante))
-            return estudiantes
         
+    def crearObjeto(self,myjson):
+        if isinstance(myjson, dict):
+            return Estudiante(myjson["matricula"], myjson["nombre"], myjson["apPaterno"], myjson["apMaterno"], myjson["correo"])
+        elif isinstance(myjson, list):
+            for i in range(0,len(myjson)):
+                self.elementos[i] = myjson[i]
+            return self.elementos
+        else:
+            return None
     def __repr__(self):
         return self.__str__()
 if __name__ == "__main__":
     estudiante1 = Estudiante(123, "Juan", "Perez", "Gomez", "cBp7o@example.com")
     estudiante2 = Estudiante(456, "Pedro", "Lopez", "Garcia", "2r4y6@example.com")
     estudiante3 = Estudiante(789, "Maria", "Gonzalez", "Gomez", "VXyOa@example.com")
+    estudiante4 = Estudiante(101, "Luis", "Gonzalez", "Gomez", "VXyOa@example.com")
+    estudiante5 = Estudiante(101, "Dante", "Ramirez", "Lopez", "VXyOa@example.com")
     estudiantes = Estudiante();
     
+    # Agregando elementos a la lista de estudiantes
     estudiantes.agregar_elemento(estudiante1);
     estudiantes.agregar_elemento(estudiante2);
     estudiantes.agregar_elemento(estudiante3);
+    estudiantes.agregar_elemento(estudiante4);
+    estudiantes.agregar_elemento(estudiante5);
 
+    # Creacion del archivo json para estudiantes
     estudiantes.crearArchivo("estudiantes")
 
+    # Creacion del archivo json para el estudiante
     estudiante1.crearArchivo("estudiante1")
 
-    estudiantes = estudiantes.crearObjeto("estudiantes")
-    estudiante = estudiantes.crearObjeto("estudiante1")
+    # Crear un objeto a partir de un archivo
+    estudiantesObject = estudiantes.crearObjeto(estudiantes.cargar("estudiantes"))
+    estudianteObject = estudiante1.crearObjeto(estudiante1.cargar("estudiante1"))
 
-    print(estudiante)
-    print(type(estudiante))
-    print(estudiantes)
-    print(type(estudiantes))
+
+
 
 
 

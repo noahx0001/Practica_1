@@ -31,14 +31,15 @@ class Curso(Lista):
             return cursos
         else:
             return None
-    def crearObjeto(self, dictionary):
-        if isinstance(dictionary, dict):
-            return Curso(dictionary["nombre"], dictionary["descripcion"], datetime.fromisoformat(dictionary["fechaInicio"]), datetime.fromisoformat(dictionary["fechaFin"]), dictionary["modalidad"])
+    def crearObjeto(self, myjson):
+        if isinstance(myjson, dict):
+            return Curso(myjson["nombre"], myjson["descripcion"], datetime.fromisoformat(myjson["fechaInicio"]), datetime.fromisoformat(myjson["fechaFin"]), myjson["modalidad"])
+        elif isinstance(myjson, list):
+            for i in range(0,len(myjson)):
+                self.elementos[i] = myjson[i]
+            return self.elementos
         else:
-            cursos = Curso()
-            for curso in dictionary:
-                cursos.agregar_elemento(self.crearObjeto(curso))
-            return cursos
+            return None
         
 if __name__ == "__main__":
     curso1 = Curso("Programacion", "Curso de Python", datetime(2023, 6, 1), datetime(2023, 6, 30), "Presencial")

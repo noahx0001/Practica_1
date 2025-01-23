@@ -19,5 +19,19 @@
         "apPaterno": "Gonzalez",
         "apMaterno": "Gomez",
         "correo": "VXyOa@example.com"
+    },
+    {
+        "matricula": 101,
+        "nombre": "Luis",
+        "apPaterno": "Gonzalez",
+        "apMaterno": "Gomez",
+        "correo": "VXyOa@example.com"
+    },
+    {
+        "matricula": 101,
+        "nombre": "Dante",
+        "apPaterno": "Ramirez",
+        "apMaterno": "Lopez",
+        "correo": "VXyOa@example.com"
     }
 ]
