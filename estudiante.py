@@ -67,6 +67,7 @@ if __name__ == "__main__":
     estudianteObject = estudiante1.crearObjeto(estudiante1.cargar("estudiante1"))
 
     print(estudiantesObject.elementos[0].nombre)
+    print(estudianteObject.nombre)
 
 
 

@@ -4,10 +4,10 @@ from curso import Curso
 from lista import Lista
 from datetime import datetime
 class Inscrito(Lista):
-    def __init__(self,estudiante: Estudiante=None, curso: Curso=None, fechaInscripcion=None):
-        self.isObject=estudiante and curso and fechaInscripcion
+    def __init__(self,estudiantes: Estudiante=None, curso: Curso=None, fechaInscripcion=None):
+        self.isObject=estudiantes and curso and fechaInscripcion
         if self.isObject:    
-            self.estudiante = estudiante
+            self.estudiantes = estudiantes
             self.curso = curso
             self.fechaInscripcion = fechaInscripcion
         else:
@@ -17,7 +17,7 @@ class Inscrito(Lista):
         return str(self.conversion())
     def conversion(self):
          if self.isObject:
-            inscritoDict = dict(estudiante=self.estudiante.conversion(), curso=self.curso.conversion(), fechaInscripcion=self.fechaInscripcion.isoformat())
+            inscritoDict = dict(estudiantes=self.estudiantes.conversion(), curso=self.curso.conversion(), fechaInscripcion=self.fechaInscripcion.isoformat())
             return inscritoDict
          elif hasattr(self, "elementos"):
             inscritos = []
@@ -29,7 +29,7 @@ class Inscrito(Lista):
             return None
     def crearObjeto(self,myjson):
         if isinstance(myjson, dict):
-            return Inscrito(myjson["estudiante"], myjson["curso"], myjson["fechaInscripcion"])
+            return Inscrito(self.estudiantes.crearObjeto(myjson["estudiantes"]), self.curso.crearObjeto(myjson["curso"]), datetime.fromisoformat(myjson["fechaInscripcion"]))
         elif isinstance(myjson, list):
             inscritos = Inscrito()
             for v in myjson:
@@ -51,17 +51,26 @@ if __name__ == "__main__":
         estudiantes.agregar_elemento(estudiante2)
         estudiantes.agregar_elemento(estudiante3)
 
+        
         inscrito1=Inscrito(estudiantes,curso1,datetime(2023, 6, 1))
 
+        inscritos=Inscrito()
+
+        inscritos.agregar_elemento(inscrito1)
+        inscritos.agregar_elemento(inscrito1)
+
         inscrito1.crearArchivo("inscrito1")
+        inscritos.crearArchivo("inscritos")
 
         estudiante4 = Estudiante(101, "Luis", "Gonzalez", "Gomez", "VXyOa@example.com")
 
-        inscrito1.estudiante.agregar_elemento(estudiante4)
+        inscrito1.estudiantes.agregar_elemento(estudiante4)
 
-        inscritoObject = inscrito1.crearObjeto(inscrito1.cargar("inscrito1"));
+        inscritoObject = inscrito1.crearObjeto(inscrito1.cargar("inscrito1"))
+        inscritosObject = inscritos.crearObjeto(inscritos.cargar("inscritos"))
 
-        print(inscritoObject.nombre)
+        print(inscritoObject.estudiantes)
+
 
 
 
