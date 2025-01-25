@@ -33,9 +33,10 @@ class Estudiante(Lista):
         if isinstance(myjson, dict):
             return Estudiante(myjson["matricula"], myjson["nombre"], myjson["apPaterno"], myjson["apMaterno"], myjson["correo"])
         elif isinstance(myjson, list):
-            for i in range(0,len(myjson)):
-                self.elementos[i] = myjson[i]
-            return self.elementos
+            estudiantes = Estudiante()
+            for v in myjson:
+                estudiantes.agregar_elemento(self.crearObjeto(v))
+            return estudiantes
         else:
             return None
     def __repr__(self):
@@ -64,6 +65,10 @@ if __name__ == "__main__":
     # Crear un objeto a partir de un archivo
     estudiantesObject = estudiantes.crearObjeto(estudiantes.cargar("estudiantes"))
     estudianteObject = estudiante1.crearObjeto(estudiante1.cargar("estudiante1"))
+
+    print(estudiantesObject.elementos[0].nombre)
+
+
 
 
 

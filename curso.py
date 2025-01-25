@@ -35,9 +35,10 @@ class Curso(Lista):
         if isinstance(myjson, dict):
             return Curso(myjson["nombre"], myjson["descripcion"], datetime.fromisoformat(myjson["fechaInicio"]), datetime.fromisoformat(myjson["fechaFin"]), myjson["modalidad"])
         elif isinstance(myjson, list):
-            for i in range(0,len(myjson)):
-                self.elementos[i] = myjson[i]
-            return self.elementos
+            cursos = Curso()
+            for v in myjson:
+                cursos.agregar_elemento(self.crearObjeto(v))    
+            return cursos
         else:
             return None
         
@@ -55,10 +56,7 @@ if __name__ == "__main__":
 
     curso1.crearArchivo("curso1") 
 
-    cursos = curso1.crearObjeto(curso1.cargar("cursos"))
-    curso = cursos.crearObjeto(curso1.cargar("curso1"))
+    cursosObject = cursos.crearObjeto(cursos.cargar("cursos"))
+    cursoObject = cursos.crearObjeto(curso1.cargar("curso1"))
 
-    print(curso)
-    print(type(curso))
-    print(cursos)
-    print(type(cursos))
+    print(cursosObject.elementos[0].nombre)

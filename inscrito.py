@@ -4,10 +4,10 @@ from curso import Curso
 from lista import Lista
 from datetime import datetime
 class Inscrito(Lista):
-    def __init__(self,estudiantes: list[Estudiante]=None, curso: Curso=None, fechaInscripcion=None):
-        self.isObject=estudiantes and curso and fechaInscripcion
+    def __init__(self,estudiante: Estudiante=None, curso: Curso=None, fechaInscripcion=None):
+        self.isObject=estudiante and curso and fechaInscripcion
         if self.isObject:    
-            self.estudiantes = estudiantes  
+            self.estudiante = estudiante
             self.curso = curso
             self.fechaInscripcion = fechaInscripcion
         else:
@@ -17,7 +17,7 @@ class Inscrito(Lista):
         return str(self.conversion())
     def conversion(self):
          if self.isObject:
-            inscritoDict = dict(estudiantes=self.estudiantes.conversion(), curso=self.curso.conversion(), fechaInscripcion=self.fechaInscripcion.isoformat())
+            inscritoDict = dict(estudiante=self.estudiante.conversion(), curso=self.curso.conversion(), fechaInscripcion=self.fechaInscripcion.isoformat())
             return inscritoDict
          elif hasattr(self, "elementos"):
             inscritos = []
@@ -27,13 +27,14 @@ class Inscrito(Lista):
             return inscritos
          else:
             return None
-    def crearObjeto(self,mysjson):
-        if isinstance(mysjson, dict):
-            return Inscrito(mysjson["estudiantes"], mysjson["curso"], mysjson["fechaInscripcion"])
-        elif isinstance(mysjson, list):
-            for i in range(0,len(mysjson)):
-                self.elementos[i] = mysjson[i]
-            return self.elementos
+    def crearObjeto(self,myjson):
+        if isinstance(myjson, dict):
+            return Inscrito(myjson["estudiante"], myjson["curso"], myjson["fechaInscripcion"])
+        elif isinstance(myjson, list):
+            inscritos = Inscrito()
+            for v in myjson:
+                inscritos.agregar_elemento(self.crearObjeto(v))
+            return inscritos
         else:
             return None
     
@@ -50,24 +51,21 @@ if __name__ == "__main__":
         estudiantes.agregar_elemento(estudiante2)
         estudiantes.agregar_elemento(estudiante3)
 
-        inscritos=Inscrito(estudiantes,curso1,datetime(2023, 6, 1))
+        inscrito1=Inscrito(estudiantes,curso1,datetime(2023, 6, 1))
 
-        inscritos.crearArchivo("inscritos")
+        inscrito1.crearArchivo("inscrito1")
 
         estudiante4 = Estudiante(101, "Luis", "Gonzalez", "Gomez", "VXyOa@example.com")
-        inscritos.estudiantes.agregar_elemento(estudiante4)
 
-        inscritos2 = Inscrito()
+        inscrito1.estudiante.agregar_elemento(estudiante4)
 
-        print(inscritos2)
+        inscritoObject = inscrito1.crearObjeto(inscrito1.cargar("inscrito1"));
 
-        inscritos2.agregar_elemento(inscritos)
+        print(inscritoObject.nombre)
 
-        print(inscritos2)
 
-        inscritos2.crearArchivo("inscritos2")
 
-        mySingleObject= inscritos2.crearObjeto(inscritos2.cargar("inscritos2"))
 
-        print(mySingleObject)
+
+
 
