@@ -29,9 +29,7 @@ class Inscrito(Lista):
             return None
     def crearObjeto(self,myjson):
         if isinstance(myjson, dict):
-            estudiantes = Estudiante()
-            curso = Curso()
-            return Inscrito(estudiantes.crearObjeto(myjson["estudiantes"]), curso.crearObjeto(myjson["curso"]), datetime.fromisoformat(myjson["fechaInscripcion"]))
+            return Inscrito(Estudiante().crearObjeto(myjson["estudiantes"]), Curso().crearObjeto(myjson["curso"]), datetime.fromisoformat(myjson["fechaInscripcion"]))
         elif isinstance(myjson, list):
             inscritos = Inscrito()
             for v in myjson:
