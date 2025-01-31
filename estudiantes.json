@@ -33,5 +33,12 @@
         "apPaterno": "Ramirez",
         "apMaterno": "Lopez",
         "correo": "VXyOa@example.com"
+    },
+    {
+        "matricula": 101,
+        "nombre": "Dante",
+        "apPaterno": "Ramirez",
+        "apMaterno": "Lopez",
+        "correo": "hola@gmail.com"
     }
 ]
