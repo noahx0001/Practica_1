@@ -40,5 +40,19 @@
         "apPaterno": "Ramirez",
         "apMaterno": "Lopez",
         "correo": "hola@gmail.com"
+    },
+    {
+        "matricula": "asdas",
+        "nombre": "hola",
+        "apPaterno": "asd",
+        "apMaterno": "aasd",
+        "correo": "asd"
+    },
+    {
+        "matricula": "asd",
+        "nombre": "benito",
+        "apPaterno": "asd",
+        "apMaterno": "asd",
+        "correo": "asd"
     }
 ]

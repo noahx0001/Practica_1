@@ -13,7 +13,7 @@ class Lista:
         return self.elementos
 
     def eliminar_elemento(self, elemento):
-        self.elementos.remove(elemento)
+        self.elementos.pop(elemento - 1)
 
     def buscar_elemento(self, elemento):
         return elemento in self.elementos
