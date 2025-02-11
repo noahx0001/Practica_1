@@ -24,7 +24,7 @@
             }
         ],
         "curso": {
-            "nombre": "Programacion",
+            "nombre": "Python",
             "descripcion": "Curso de Python",
             "fechaInicio": "2023-06-01T00:00:00",
             "fechaFin": "2023-06-30T00:00:00",
@@ -68,34 +68,27 @@
     {
         "estudiantes": [
             {
-                "matricula": 123,
-                "nombre": "Juan",
-                "apPaterno": "Perez",
-                "apMaterno": "Gomez",
-                "correo": "cBp7o@example.com"
+                "matricula": "hola",
+                "nombre": "hola",
+                "apPaterno": "hola",
+                "apMaterno": "hola",
+                "correo": "hola"
             },
             {
-                "matricula": 456,
-                "nombre": "Pedro",
-                "apPaterno": "Lopez",
-                "apMaterno": "Garcia",
-                "correo": "2r4y6@example.com"
-            },
-            {
-                "matricula": 789,
-                "nombre": "Maria",
-                "apPaterno": "Gonzalez",
-                "apMaterno": "Gomez",
-                "correo": "VXyOa@example.com"
+                "matricula": "pepep",
+                "nombre": "pepe",
+                "apPaterno": "pe",
+                "apMaterno": "pe",
+                "correo": "pe"
             }
         ],
         "curso": {
-            "nombre": "Programacion",
-            "descripcion": "Curso de Python",
-            "fechaInicio": "2023-06-01T00:00:00",
-            "fechaFin": "2023-06-30T00:00:00",
-            "modalidad": "Presencial"
+            "nombre": "pepe",
+            "descripcion": "pepe",
+            "fechaInicio": "1111-10-10T00:00:00",
+            "fechaFin": "1111-10-10T00:00:00",
+            "modalidad": "pepe"
         },
-        "fechaInscripcion": "2023-06-01T00:00:00"
+        "fechaInscripcion": "1992-10-10T00:00:00"
     }
 ]

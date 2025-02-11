@@ -21,7 +21,13 @@ class Curso(Lista):
     
     def conversion(self):
         if self.isObject:
-            cursoDict = dict(nombre=self.nombre, descripcion=self.descripcion, fechaInicio=self.fechaInicio.isoformat(), fechaFin=self.fechaFin.isoformat(), modalidad=self.modalidad)
+            cursoDict = dict(
+                nombre=self.nombre,
+                descripcion=self.descripcion,
+                fechaInicio=self.fechaInicio.isoformat(),
+                fechaFin=self.fechaFin.isoformat(),
+                modalidad=self.modalidad
+                )
             return cursoDict
         elif hasattr(self, "elementos"):
             cursos = []
@@ -33,12 +39,18 @@ class Curso(Lista):
             return None
     def crearObjeto(self, myjson):
         if isinstance(myjson, dict):
-            return Curso(myjson["nombre"], myjson["descripcion"], datetime.fromisoformat(myjson["fechaInicio"]), datetime.fromisoformat(myjson["fechaFin"]), myjson["modalidad"])
+            return Curso(
+                myjson["nombre"],
+                myjson["descripcion"],
+                datetime.fromisoformat(myjson["fechaInicio"]),
+                datetime.fromisoformat(myjson["fechaFin"]),
+                myjson["modalidad"]
+                )
         elif isinstance(myjson, list):
             self.elementos = []
             for v in myjson:
                 self.agregar_elemento(self.crearObjeto(v))    
-            return self.elementos
+            return self
         else:
             return None
     def cargarJson(self, nombreArchivo):

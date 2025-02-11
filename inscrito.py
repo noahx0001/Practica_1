@@ -41,8 +41,8 @@ class Inscrito(Lista):
         elif isinstance(myjson, list):
             self.elementos = []
             for v in myjson:
-                inscritos.agregar_elemento(self.crearObjeto(v))
-            return self.elementos
+                self.agregar_elemento(self.crearObjeto(v))
+            return self
         else:
             return None
     def cargarJson(self, nombreArchivo):
@@ -81,12 +81,11 @@ if __name__ == "__main__":
 
         inscritos = Inscrito()
 
-        inscritos.cargarJson("inscritos")
-
+        inscritos.agregar_elemento(inscrito1)
         inscritos.agregar_elemento(inscrito1)
 
         inscritos.crearArchivo("inscritos")
-
+        
         print(inscritos)
 
 

@@ -33,5 +33,110 @@
         "fechaInicio": "2023-06-01T00:00:00",
         "fechaFin": "2023-06-30T00:00:00",
         "modalidad": "Presencial"
+    },
+    {
+        "nombre": "12",
+        "descripcion": "2",
+        "fechaInicio": "1992-10-10T00:00:00",
+        "fechaFin": "1929-10-10T00:00:00",
+        "modalidad": "ads"
+    },
+    {
+        "nombre": "hola",
+        "descripcion": "hola",
+        "fechaInicio": "1992-10-11T00:00:00",
+        "fechaFin": "1192-10-11T00:00:00",
+        "modalidad": "presencial"
+    },
+    {
+        "nombre": "HOLAAA",
+        "descripcion": "HOLAA",
+        "fechaInicio": "1992-10-11T00:00:00",
+        "fechaFin": "1992-10-11T00:00:00",
+        "modalidad": "PRESENCIAL"
+    },
+    {
+        "nombre": "Pato",
+        "descripcion": "pato",
+        "fechaInicio": "1992-10-10T00:00:00",
+        "fechaFin": "1992-10-10T00:00:00",
+        "modalidad": "presencial"
+    },
+    {
+        "nombre": "ganso",
+        "descripcion": "ganso",
+        "fechaInicio": "1992-10-10T00:00:00",
+        "fechaFin": "1992-10-10T00:00:00",
+        "modalidad": "presencial"
+    },
+    {
+        "nombre": "asd",
+        "descripcion": "asd",
+        "fechaInicio": "1992-10-10T00:00:00",
+        "fechaFin": "1992-10-10T00:00:00",
+        "modalidad": "asda"
+    },
+    {
+        "nombre": "as",
+        "descripcion": "dd",
+        "fechaInicio": "1992-10-10T00:00:00",
+        "fechaFin": "1992-10-10T00:00:00",
+        "modalidad": "asd"
+    },
+    {
+        "nombre": "python",
+        "descripcion": "asdasd",
+        "fechaInicio": "1992-10-10T00:00:00",
+        "fechaFin": "1992-10-10T00:00:00",
+        "modalidad": "presencial"
+    },
+    {
+        "nombre": "asda",
+        "descripcion": "asd",
+        "fechaInicio": "1992-10-10T00:00:00",
+        "fechaFin": "1992-10-10T00:00:00",
+        "modalidad": "asd"
+    },
+    {
+        "nombre": "asd",
+        "descripcion": "asd",
+        "fechaInicio": "1992-11-11T00:00:00",
+        "fechaFin": "1111-11-11T00:00:00",
+        "modalidad": "111"
+    },
+    {
+        "nombre": "asdas",
+        "descripcion": "asd",
+        "fechaInicio": "1992-10-10T00:00:00",
+        "fechaFin": "1992-10-10T00:00:00",
+        "modalidad": "asdad"
+    },
+    {
+        "nombre": "Python",
+        "descripcion": "python",
+        "fechaInicio": "1992-10-10T00:00:00",
+        "fechaFin": "1992-10-10T00:00:00",
+        "modalidad": "presencial"
+    },
+    {
+        "nombre": "hola",
+        "descripcion": "hola",
+        "fechaInicio": "1992-10-10T00:00:00",
+        "fechaFin": "1992-10-10T00:00:00",
+        "modalidad": "as"
+    },
+    {
+        "nombre": "pepe",
+        "descripcion": "pepe",
+        "fechaInicio": "1999-11-11T00:00:00",
+        "fechaFin": "1999-11-11T00:00:00",
+        "modalidad": "pepe"
+    },
+    {
+        "nombre": "pepe",
+        "descripcion": "pepe",
+        "fechaInicio": "1111-10-10T00:00:00",
+        "fechaFin": "1111-10-10T00:00:00",
+        "modalidad": "pepe"
     }
 ]

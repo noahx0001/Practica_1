@@ -54,5 +54,75 @@
         "apPaterno": "asd",
         "apMaterno": "asd",
         "correo": "asd"
+    },
+    {
+        "matricula": "asd",
+        "nombre": "asda",
+        "apPaterno": "asd",
+        "apMaterno": "asd",
+        "correo": "asd"
+    },
+    {
+        "matricula": "s",
+        "nombre": "asd",
+        "apPaterno": "s",
+        "apMaterno": "s",
+        "correo": "s"
+    },
+    {
+        "matricula": "a",
+        "nombre": "a",
+        "apPaterno": "a",
+        "apMaterno": "a",
+        "correo": "a"
+    },
+    {
+        "matricula": "as",
+        "nombre": "3",
+        "apPaterno": "s",
+        "apMaterno": "s",
+        "correo": "s"
+    },
+    {
+        "matricula": "HOLA",
+        "nombre": "HOLA",
+        "apPaterno": "A",
+        "apMaterno": "A",
+        "correo": "A"
+    },
+    {
+        "matricula": "asd",
+        "nombre": "holaaaaa",
+        "apPaterno": "asd",
+        "apMaterno": "asd",
+        "correo": "asd"
+    },
+    {
+        "matricula": "1",
+        "nombre": "1",
+        "apPaterno": "1",
+        "apMaterno": "1",
+        "correo": "1"
+    },
+    {
+        "matricula": "kk",
+        "nombre": "kk",
+        "apPaterno": "kk",
+        "apMaterno": "kk",
+        "correo": "kk"
+    },
+    {
+        "matricula": "s",
+        "nombre": "hola",
+        "apPaterno": "s",
+        "apMaterno": "s",
+        "correo": "s"
+    },
+    {
+        "matricula": "ass",
+        "nombre": "juan",
+        "apPaterno": "d",
+        "apMaterno": "s",
+        "correo": "s"
     }
 ]

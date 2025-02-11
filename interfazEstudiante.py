@@ -1,10 +1,14 @@
 from estudiante import Estudiante
-from interfaz import Interfaz
 from tabulate import tabulate
 
-class InterfazEstudiante(Interfaz):
+class InterfazEstudiante:
     def __init__(self, myestudiantes=None):
-        self.myestudiantes = myestudiantes if myestudiantes else Estudiante().cargarJson("estudiantes")
+        if myestudiantes:
+            self.myestudiantes = myestudiantes
+            self.isJson = False
+        else:
+            self.myestudiantes = Estudiante().cargarJson("estudiantes")
+            self.isJson = True
 
     def menu(self):
        
@@ -20,8 +24,7 @@ class InterfazEstudiante(Interfaz):
             else:
                 match opcion:
                     case 0:
-                        objetoCreado = self.crearObjeto()
-                        self.crearArchivo(objetoCreado)
+                        self.crearObjeto()
                     case 1:
                         self.actualizar()
                     case 2:
@@ -40,7 +43,15 @@ class InterfazEstudiante(Interfaz):
             apPaterno = input("- Ingrese el apellido paterno del estudiante: ")
             apMaterno = input("- Ingrese el apellido materno del estudiante: ")
             correo = input("- Ingrese el correo del estudiante: ")
-            return Estudiante(matricula, nombre, apPaterno, apMaterno, correo)
+            estudiante = Estudiante(matricula, nombre, apPaterno, apMaterno, correo)
+            if self.myestudiantes.isObject:
+                self.myestudiantes = estudiante
+            else:
+                self.myestudiantes.agregar_elemento(estudiante)
+            self.guardarEstudiantes("estudiantes")
+            print("\n(Creado) ¡El estudiante ha sido creado!\n")
+            return self.myestudiantes
+
 
     def mostrar(self):
         tabla = []
@@ -50,11 +61,6 @@ class InterfazEstudiante(Interfaz):
         encabezados = ["ID","Matricula", "Nombre", "Apellido Paterno", "Apellido Materno", "Correo"]
         print(tabulate(tabla, headers=encabezados, tablefmt="fancy_grid"))
 
-    def crearArchivo(self, objetoCreado):
-        self.myestudiantes.agregar_elemento(objetoCreado)
-        self.myestudiantes.crearArchivo("estudiantes")
-
-
     def eliminar(self):
         elemento = input("Ingrese el elemento a eliminar: ")
         try:
@@ -63,7 +69,7 @@ class InterfazEstudiante(Interfaz):
             print("\n(Error) ¡El valor ingresado no es un numero!\n")
         else:
             self.myestudiantes.eliminar_elemento(elemento)
-            self.myestudiantes.crearArchivo("estudiantes")
+            self.guardarEstudiantes("estudiantes")
             print("\n(Eliminado) ¡El estudiante ha sido eliminado!\n")
     def actualizar(self):
         elementoActualizar = input("Ingrese el ID del elemento a actualizar: ")
@@ -74,8 +80,12 @@ class InterfazEstudiante(Interfaz):
         else:
             objetoCreado = self.crearObjeto()
             self.myestudiantes.actualizar_elemento(elementoActualizar, objetoCreado)
-            self.myestudiantes.crearArchivo("estudiantes")
+            self.guardarEstudiantes("estudiantes")
+
             print("\n(Actualizado) ¡El estudiante ha sido actualizado!\n")
+    def guardarEstudiantes(self, nombreArchivo):
+        if self.isJson:
+            self.myestudiantes.crearArchivo(nombreArchivo)
 
 if __name__ == "__main__":
     interfaz = InterfazEstudiante()
