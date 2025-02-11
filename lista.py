@@ -19,8 +19,7 @@ class Lista:
         return elemento in self.elementos
     
     def actualizar_elemento(self, elemento, nuevo_elemento):
-        self.eliminar_elemento(elemento)
-        self.agregar_elemento(nuevo_elemento)
+        self.elementos[elemento - 1] = nuevo_elemento
 
     def crearArchivo(self, nombreArchivo):
         f = open(nombreArchivo+".json", "w")

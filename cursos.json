@@ -126,17 +126,38 @@
         "modalidad": "as"
     },
     {
-        "nombre": "pepe",
-        "descripcion": "pepe",
-        "fechaInicio": "1999-11-11T00:00:00",
-        "fechaFin": "1999-11-11T00:00:00",
-        "modalidad": "pepe"
+        "nombre": "q",
+        "descripcion": "q",
+        "fechaInicio": "1111-11-11T00:00:00",
+        "fechaFin": "1111-11-11T00:00:00",
+        "modalidad": "q"
     },
     {
-        "nombre": "pepe",
-        "descripcion": "pepe",
-        "fechaInicio": "1111-10-10T00:00:00",
-        "fechaFin": "1111-10-10T00:00:00",
-        "modalidad": "pepe"
+        "nombre": "x",
+        "descripcion": "x",
+        "fechaInicio": "1111-11-11T00:00:00",
+        "fechaFin": "1111-11-11T00:00:00",
+        "modalidad": "x"
+    },
+    {
+        "nombre": "c",
+        "descripcion": "c",
+        "fechaInicio": "1111-11-11T00:00:00",
+        "fechaFin": "1111-11-11T00:00:00",
+        "modalidad": "c"
+    },
+    {
+        "nombre": "loca",
+        "descripcion": "loca",
+        "fechaInicio": "1111-11-11T00:00:00",
+        "fechaFin": "1111-11-11T00:00:00",
+        "modalidad": "hola"
+    },
+    {
+        "nombre": "a",
+        "descripcion": "a",
+        "fechaInicio": "1112-11-10T00:00:00",
+        "fechaFin": "1112-11-10T00:00:00",
+        "modalidad": "a"
     }
 ]

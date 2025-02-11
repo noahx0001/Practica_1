@@ -75,19 +75,19 @@
                 "correo": "hola"
             },
             {
-                "matricula": "pepep",
-                "nombre": "pepe",
-                "apPaterno": "pe",
-                "apMaterno": "pe",
-                "correo": "pe"
+                "matricula": "23171293",
+                "nombre": "Juan Alfredo",
+                "apPaterno": "Gomez",
+                "apMaterno": "Gonzalez",
+                "correo": "juanhd@gmail.com"
             }
         ],
         "curso": {
-            "nombre": "pepe",
-            "descripcion": "pepe",
-            "fechaInicio": "1111-10-10T00:00:00",
-            "fechaFin": "1111-10-10T00:00:00",
-            "modalidad": "pepe"
+            "nombre": "PEPE",
+            "descripcion": "PEPE",
+            "fechaInicio": "1111-11-11T00:00:00",
+            "fechaFin": "1111-11-11T00:00:00",
+            "modalidad": "PEP"
         },
         "fechaInscripcion": "1992-10-10T00:00:00"
     }

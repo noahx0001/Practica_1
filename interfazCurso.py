@@ -72,6 +72,7 @@ class InterfazCurso:
         print(tabulate(tabla, headers=encabezados, tablefmt="fancy_grid"))
 
     def eliminar(self):
+        self.mostrar()
         elemento = input("Ingrese el elemento a eliminar: ")
         try:
             elemento = int(elemento)
@@ -84,18 +85,40 @@ class InterfazCurso:
 
     def actualizar(self):
         if self.mycursos.isObject:
-            self.mycursos= self.crearObjeto()
+            self.mycursos.nombre = input("Ingrese el nombre del curso: ")
+            self.mycursos.descripcion = input("Ingrese la descripción del curso: ")
+
+            while True:
+                try: 
+                    self.mycursos.fechaInicio = datetime.fromisoformat(input("Ingrese la fecha de inicio: "))
+                    self.mycursos.fechaFin = datetime.fromisoformat(input("Ingrese la fecha de fin: "))
+                    break
+                except ValueError:
+                    print("\n(Error) ¡Ingrese en formato YYYY-MM-DD!\n")
+
+            self.mycursos.modalidad = input("Ingrese la modalidad del curso: ")
+            self.guardarCursos("cursos")
+            print("\n(Actualizado) ¡El curso ha sido actualizado!\n")
             return self.mycursos
-        
-        self.mostrar()
-        elementoActualizar = input("Ingrese el ID del elemento a actualizar: ")
-        try:
-            elementoActualizar = int(elementoActualizar)
-        except ValueError:
-            print("\n(Error) ¡El valor ingresado no es un numero!\n")
         else:
-            objetoCreado = self.crearObjeto()
-            self.mycursos.actualizar_elemento(elementoActualizar, objetoCreado)
+            self.mostrar()
+            elementoActualizar = input("Ingrese el ID del elemento a actualizar: ")
+            while True:
+                try:
+                    elementoActualizar = int(elementoActualizar)
+                    break
+                except ValueError:
+                    print("\n(Error) ¡El valor ingresado no es un numero!\n")
+            self.mycursos.elementos[elementoActualizar - 1].nombre = input("Ingrese el nombre del curso: ")
+            self.mycursos.elementos[elementoActualizar - 1].descripcion = input("Ingrese la descripción del curso: ")
+            while True:
+                try: 
+                    self.mycursos.elementos[elementoActualizar - 1].fechaInicio = datetime.fromisoformat(input("Ingrese la fecha de inicio: "))
+                    self.mycursos.elementos[elementoActualizar - 1].fechaFin = datetime.fromisoformat(input("Ingrese la fecha de fin: "))
+                    break
+                except ValueError:
+                    print("\n(Error) ¡Ingrese en formato YYYY-MM-DD!\n")
+            self.mycursos.elementos[elementoActualizar - 1].modalidad = input("Ingrese la modalidad del curso: ")
             self.guardarCursos("cursos")
             print("\n(Actualizado) ¡El curso ha sido actualizado!\n")
             return self.mycursos

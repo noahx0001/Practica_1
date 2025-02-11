@@ -87,12 +87,10 @@ class InterfazInscrito:
                         interfazEstudiante.menu()
                         insSelected.estudiantes = interfazEstudiante.myestudiantes
                         self.guardarInscritos("inscritos")
-                        print("\n(Actualizado) ¡Los estudiantes han sido actualizados!\n")
                     case 2:
                         cursoNuevo = InterfazCurso(self.myinscritos.elementos[opcion - 1].curso).actualizar()
                         insSelected.curso = cursoNuevo
                         self.guardarInscritos("inscritos")
-                        print("\n(Actualizado) ¡El curso ha sido actualizado!\n")
                     case 3:
                         while True:
                             try:

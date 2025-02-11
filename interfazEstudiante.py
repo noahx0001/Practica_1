@@ -44,10 +44,7 @@ class InterfazEstudiante:
             apMaterno = input("- Ingrese el apellido materno del estudiante: ")
             correo = input("- Ingrese el correo del estudiante: ")
             estudiante = Estudiante(matricula, nombre, apPaterno, apMaterno, correo)
-            if self.myestudiantes.isObject:
-                self.myestudiantes = estudiante
-            else:
-                self.myestudiantes.agregar_elemento(estudiante)
+            self.myestudiantes.agregar_elemento(estudiante)
             self.guardarEstudiantes("estudiantes")
             print("\n(Creado) ¡El estudiante ha sido creado!\n")
             return self.myestudiantes
@@ -62,6 +59,7 @@ class InterfazEstudiante:
         print(tabulate(tabla, headers=encabezados, tablefmt="fancy_grid"))
 
     def eliminar(self):
+        self.mostrar()
         elemento = input("Ingrese el elemento a eliminar: ")
         try:
             elemento = int(elemento)
@@ -72,17 +70,32 @@ class InterfazEstudiante:
             self.guardarEstudiantes("estudiantes")
             print("\n(Eliminado) ¡El estudiante ha sido eliminado!\n")
     def actualizar(self):
-        elementoActualizar = input("Ingrese el ID del elemento a actualizar: ")
-        try:
-            elementoActualizar = int(elementoActualizar)
-        except ValueError:
-            print("\n(Error) ¡El valor ingresado no es un numero!\n")
-        else:
-            objetoCreado = self.crearObjeto()
-            self.myestudiantes.actualizar_elemento(elementoActualizar, objetoCreado)
+        if self.myestudiantes.isObject:
+            self.myestudiantes.matricula = input("Ingrese la matricula del estudiante: ")
+            self.myestudiantes.nombre = input("Ingrese el nombre del estudiante: ")
+            self.myestudiantes.apPaterno = input("Ingrese el apellido paterno del estudiante: ")
+            self.myestudiantes.apMaterno = input("Ingrese el apellido materno del estudiante: ")
+            self.myestudiantes.correo = input("Ingrese el correo del estudiante: ")
             self.guardarEstudiantes("estudiantes")
-
             print("\n(Actualizado) ¡El estudiante ha sido actualizado!\n")
+            return self.myestudiantes
+        else:
+            self.mostrar()
+            elementoActualizar = input("Ingrese el ID del elemento a actualizar: ")
+            while True:
+                try:
+                    elementoActualizar = int(elementoActualizar)
+                    break
+                except ValueError:
+                    print("\n(Error) ¡El valor ingresado no es un numero!\n")
+            self.myestudiantes.elementos[elementoActualizar - 1].matricula = input("Ingrese la matricula del estudiante: ")
+            self.myestudiantes.elementos[elementoActualizar - 1].nombre = input("Ingrese el nombre del estudiante: ")
+            self.myestudiantes.elementos[elementoActualizar - 1].apPaterno = input("Ingrese el apellido paterno del estudiante: ")
+            self.myestudiantes.elementos[elementoActualizar - 1].apMaterno = input("Ingrese el apellido materno del estudiante: ")
+            self.myestudiantes.elementos[elementoActualizar - 1].correo = input("Ingrese el correo del estudiante: ")
+            self.guardarEstudiantes("estudiantes")
+            print("\n(Actualizado) ¡El estudiante ha sido actualizado!\n")
+            return self.myestudiantes
     def guardarEstudiantes(self, nombreArchivo):
         if self.isJson:
             self.myestudiantes.crearArchivo(nombreArchivo)
